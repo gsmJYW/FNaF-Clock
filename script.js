@@ -4,7 +4,12 @@ var sumTicks = 0;
 var startDate = new Date();
 
 var ticking = false;
+
 const toggleButton = document.getElementById('toggle-button');
+const canvas = document.getElementById ('canvas');
+
+canvas.width = window.innerHeight / 7 * 3;
+canvas.height = window.innerHeight / 7 * 3;
 
 function setTimer() {
   var tempTicks = Math.floor((new Date() - startDate) / 10);
@@ -72,7 +77,6 @@ function reset() {
   toggleButton.hidden = false;
 }
 
-var canvas = document.getElementById ('canvas');
 context = canvas.getContext ('2d');
 centerX = canvas.width / 2;
 centerY = canvas.height / 2;
@@ -83,7 +87,7 @@ function blueCircle(n) {
   context.beginPath();
   context.strokeStyle = "#49f";
   context.lineWidth = 6;
-  context.arc(centerX, centerY, 180, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
+  context.arc(centerX, centerY, window.innerHeight / 5, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
   context.stroke();
   context.restore();
 }
@@ -93,7 +97,7 @@ function whiteCircle() {
   context.beginPath();
   context.strokeStyle = "white";
   context.lineWidth = 6;
-  context.arc(centerX, centerY, 180, 0, Math.PI * 2, false);
+  context.arc(centerX, centerY, window.innerHeight / 5, 0, Math.PI * 2, false);
   context.stroke();
   context.closePath();
   context.restore();
