@@ -4,7 +4,7 @@ var sumTicks = 0;
 var startDate = new Date();
 
 var ticking = false;
-var toggleButton = document.getElementById('toggle-button');
+const toggleButton = document.getElementById('toggle-button');
 
 function setTimer() {
   var tempTicks = Math.floor((new Date() - startDate) / 10);
