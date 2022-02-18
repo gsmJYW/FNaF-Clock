@@ -182,5 +182,5 @@ function whiteCircle() {
 }());
 
 for (var bar of bars) {
-  bar.style = `width: ${relativeSize * 0.152}px; height: ${relativeSize * 0.152}px; margin: 0px 0px 0px ${relativeSize * 0.195}px`;
+  bar.style = `width: ${relativeSize * 0.175}px; height: ${relativeSize * 0.175}px; margin: 0px ${relativeSize * 0.16}px 0px ${relativeSize * 0.013}px`;
 }
