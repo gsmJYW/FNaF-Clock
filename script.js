@@ -89,7 +89,7 @@ function blueCircle(n) {
   context.beginPath();
   context.strokeStyle = "#49f";
   context.lineWidth = 6;
-  context.arc(centerX, centerY, rem * 8, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
+  context.arc(centerX, centerY, rem * 9, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
   context.stroke();
   context.restore();
 }
@@ -99,7 +99,7 @@ function whiteCircle() {
   context.beginPath();
   context.strokeStyle = "white";
   context.lineWidth = 6;
-  context.arc(centerX, centerY, rem * 8, 0, Math.PI * 2, false);
+  context.arc(centerX, centerY, rem * 9, 0, Math.PI * 2, false);
   context.stroke();
   context.closePath();
   context.restore();
