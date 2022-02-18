@@ -4,9 +4,6 @@
   margin: 0;
   padding: 0;
 }
-html {
-  font-size: 16px;
-}
 body {
   background-color: black;
   font-family: futura-pt, sans-serif;
@@ -18,46 +15,39 @@ body {
   align-items: center;
   width: 100%;
   height: 100vh;
-  padding: 30px 15px;
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
 }
-.box {
+#box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 100%;
-  max-width: 245px;
 }
-.timer {
+#timer {
   width: 100%;
 }
-.timer h1 {
+#timer-text {
   margin: 0;
   padding: 0;
   color: #fff;
   font-weight: 500;
-  font-size: 3.5rem;
   text-align: center;
 }
-#hundredths {
-  font-size: 2rem;
-}
-.buttons {
+#button-div {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-top: 10px;
 }
 .button {
   cursor: pointer;
   width: 46%;
-  padding: 8px 0;
+  height: 100%;
   border: none;
   color: #fff;
-  font-size: 1.5rem;
   outline: none;
 }
 .start-button {
@@ -68,15 +58,4 @@ body {
 }
 .reset-button {
     background-color: firebrick;
-}
-@media screen and (max-width: 480px) {
-  .box {
-    width: 250px;
-  }
-  .timer h1 {
-    font-size: 2.25rem;
-  }
-  #hundredths {
-    font-size: 1.125rem
-  }
 }

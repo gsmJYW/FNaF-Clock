@@ -6,12 +6,26 @@ var startDate = new Date();
 var ticking = false;
 
 const toggleButton = document.getElementById('toggle-button');
-const canvas = document.getElementById ('canvas');
+const canvas = document.getElementById('canvas');
+const timerText = document.getElementById('timer-text');
+const hundredths = document.getElementById('hundredths');
+const buttonDiv = document.getElementById('button-div');
+const buttons = document.getElementsByClassName('button');
 
-var rem = parseInt(getComputedStyle(document.documentElement).fontSize);
+var relativeSize = window.innerWidth < window.innerHeight * 0.5 ? window.innerWidth : window.innerHeight * 0.5;
 
-canvas.width = rem * 25;
-canvas.height = rem * 25;
+timerText.style.fontSize = `${relativeSize * 0.12}px`;
+hundredths.style.fontSize = `${relativeSize * 0.07}px`;
+buttonDiv.style.width = `${relativeSize * 0.53}px`;
+buttonDiv.style.marginTop = `${relativeSize * 0.02}px`;
+
+for (var button of buttons) {
+  button.style.padding = `${relativeSize * 0.02}px 0px`;
+  button.style.fontSize = `${relativeSize * 0.07}px`;
+}
+
+canvas.width = relativeSize;
+canvas.height = relativeSize;
 
 function setTimer() {
   var tempTicks = Math.floor((new Date() - startDate) / 10);
@@ -89,7 +103,7 @@ function blueCircle(n) {
   context.beginPath();
   context.strokeStyle = "#49f";
   context.lineWidth = 6;
-  context.arc(centerX, centerY, rem * 9, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
+  context.arc(centerX, centerY, relativeSize * 0.4, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
   context.stroke();
   context.restore();
 }
@@ -99,7 +113,7 @@ function whiteCircle() {
   context.beginPath();
   context.strokeStyle = "white";
   context.lineWidth = 6;
-  context.arc(centerX, centerY, rem * 9, 0, Math.PI * 2, false);
+  context.arc(centerX, centerY, relativeSize * 0.4, 0, Math.PI * 2, false);
   context.stroke();
   context.closePath();
   context.restore();
