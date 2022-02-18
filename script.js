@@ -8,8 +8,10 @@ var ticking = false;
 const toggleButton = document.getElementById('toggle-button');
 const canvas = document.getElementById ('canvas');
 
-canvas.width = window.innerHeight / 7 * 3;
-canvas.height = window.innerHeight / 7 * 3;
+var rem = parseInt(getComputedStyle(document.documentElement).fontSize);
+
+canvas.width = rem * 25;
+canvas.height = rem * 25;
 
 function setTimer() {
   var tempTicks = Math.floor((new Date() - startDate) / 10);
@@ -87,7 +89,7 @@ function blueCircle(n) {
   context.beginPath();
   context.strokeStyle = "#49f";
   context.lineWidth = 6;
-  context.arc(centerX, centerY, window.innerHeight / 5, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
+  context.arc(centerX, centerY, rem * 12, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
   context.stroke();
   context.restore();
 }
@@ -97,7 +99,7 @@ function whiteCircle() {
   context.beginPath();
   context.strokeStyle = "white";
   context.lineWidth = 6;
-  context.arc(centerX, centerY, window.innerHeight / 5, 0, Math.PI * 2, false);
+  context.arc(centerX, centerY, rem * 12, 0, Math.PI * 2, false);
   context.stroke();
   context.closePath();
   context.restore();
