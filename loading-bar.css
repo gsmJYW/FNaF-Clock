@@ -1,0 +1,38 @@
+.ldBar {
+  position: relative;
+  line-height: 100%;
+  margin: 0px;
+}
+.ldBar.label-center > .ldBar-label {
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 3px #fff;
+}
+.ldBar-label:after {
+  content: "%";
+  display: inline;
+}
+.ldBar.no-percent .bar-label:after {
+  content: "";
+}
+.ldBar-label {
+  visibility: hidden;
+}
+.ldBar path.baseline {
+  stroke-width: 4;
+  stroke: #f1f2f3;
+}
+.ldBar path.mainline {
+  stroke-width: 5;
+}
+#freddy-bar path.mainline {
+  stroke: brown;
+}
+#bonnie-bar path.mainline {
+  stroke: purple;
+}
+#chica-bar path.mainline {
+  stroke: orange;
+}
+#foxy-bar path.mainline {
+  stroke: red;
+}

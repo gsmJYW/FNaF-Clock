@@ -8,9 +8,24 @@ var ticking = false;
 const toggleButton = document.getElementById('toggle-button');
 const canvas = document.getElementById('canvas');
 const timerText = document.getElementById('timer-text');
+const minutes = document.getElementById('minutes')
+const seconds = document.getElementById('seconds')
 const hundredths = document.getElementById('hundredths');
 const buttonDiv = document.getElementById('button-div');
 const buttons = document.getElementsByClassName('button');
+const imgs = document.getElementsByTagName('img');
+const animatronicTexts = document.getElementsByClassName('animatronic-text');
+const animatronicTextEnds = document.getElementsByClassName('animatronic-text-end');
+const freddy = document.getElementById('freddy');
+const bonnie = document.getElementById('bonnie');
+const chica = document.getElementById('chica');
+const foxy = document.getElementById('foxy');
+const bars = document.getElementsByClassName('ldBar')
+
+var freddyBar = new ldBar('#freddy-bar');
+var foxyBar = new ldBar('#foxy-bar');
+var bonnieBar = new ldBar('#bonnie-bar');
+var chicaBar = new ldBar('#chica-bar');
 
 var relativeSize = window.innerWidth < window.innerHeight * 0.5 ? window.innerWidth : window.innerHeight * 0.5;
 
@@ -24,8 +39,26 @@ for (var button of buttons) {
   button.style.fontSize = `${relativeSize * 0.07}px`;
 }
 
+for (var img of imgs) {
+  img.style.width = `${relativeSize * 0.15}px`;
+  img.style.height = `${relativeSize * 0.15}px`;
+}
+
+for (var animatronicText of animatronicTexts) {
+  animatronicText.style.fontSize = `${relativeSize * 0.05}px`;
+  animatronicText.style.margin = `${relativeSize * 0.05}px`;
+}
+
+for (var animatronicTextEnd of animatronicTextEnds) {
+  animatronicTextEnd.style.margin = `0px 0px 0px ${relativeSize * 0.05}px`;
+}
+
 canvas.width = relativeSize;
 canvas.height = relativeSize;
+document.querySelector('button').addEventListener('click', () => {
+  document.querySelector('.progress .bar').style.transitionDuration = '10s';
+  document.querySelector('.progress').className += ' complete';
+});
 
 function setTimer() {
   var tempTicks = Math.floor((new Date() - startDate) / 10);
@@ -40,9 +73,18 @@ function setTimer() {
 
   progress = ticks / 100 / 535;
 
-  document.getElementById('hundredths').innerHTML = ('0' + ticks % 100).slice(-2);
-  document.getElementById('seconds').innerHTML = ('0' + Math.floor(ticks / 100) % 60).slice(-2);
-  document.getElementById('minutes').innerHTML = ('0' + Math.floor(ticks / 100 / 60)).slice(-2);
+  hundredths.innerHTML = ('0' + ticks % 100).slice(-2);
+  seconds.innerHTML = ('0' + Math.floor(ticks / 100) % 60).slice(-2);
+  minutes.innerHTML = ('0' + Math.floor(ticks / 100 / 60)).slice(-2);
+  freddy.innerHTML = ((302 -  ticks % 302) / 100).toFixed(2);
+  bonnie.innerHTML = ((497 -  ticks % 497) / 100).toFixed(2);
+  chica.innerHTML = ((498 -  ticks % 498) / 100).toFixed(2);
+  foxy.innerHTML = ((501 -  ticks % 501) / 100).toFixed(2);
+
+  freddyBar.set((ticks % 302) / 302 * 100);
+  bonnieBar.set((ticks % 497) / 497 * 100);
+  chicaBar.set((ticks % 498) / 498 * 100);
+  foxyBar.set((ticks % 501) / 501 * 100);
 }
 
 function start() {
@@ -86,9 +128,19 @@ function reset() {
   sec = 0;
   c = 0;
 
-  document.getElementById('hundredths').innerHTML = '00';
-  document.getElementById('seconds').innerHTML = '00';
-  document.getElementById('minutes').innerHTML = '00';
+  hundredths.innerHTML = '00';
+  seconds.innerHTML = '00';
+  minutes.innerHTML = '00';
+
+  freddy.innerHTML = '3.02';
+  bonnie.innerHTML = '4.97';
+  chica.innerHTML = '4.98';
+  foxy.innerHTML = '5.01';
+
+  freddyBar.set(0);
+  bonnieBar.set(0);
+  chicaBar.set(0);
+  foxyBar.set(0);
 
   toggleButton.hidden = false;
 }
@@ -101,7 +153,7 @@ progress = 0;
 function blueCircle(n) {
   context.save();
   context.beginPath();
-  context.strokeStyle = "#49f";
+  context.strokeStyle = '#49f';
   context.lineWidth = 6;
   context.arc(centerX, centerY, relativeSize * 0.4, -Math.PI / 2, -Math.PI / 2 + n * Math.PI * 2, false);
   context.stroke();
@@ -111,7 +163,7 @@ function blueCircle(n) {
 function whiteCircle() {
   context.save();
   context.beginPath();
-  context.strokeStyle = "white";
+  context.strokeStyle = 'white';
   context.lineWidth = 6;
   context.arc(centerX, centerY, relativeSize * 0.4, 0, Math.PI * 2, false);
   context.stroke();
@@ -128,3 +180,7 @@ function whiteCircle() {
   context.restore();
   blueCircle(progress);
 }());
+
+for (var bar of bars) {
+  bar.style = `width: ${relativeSize * 0.152}px; height: ${relativeSize * 0.152}px; margin: 0px 0px 0px ${relativeSize * 0.195}px`;
+}

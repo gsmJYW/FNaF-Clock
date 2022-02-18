@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="https://demo.plantpot.works/assets/css/normalize.css">
     <link rel="stylesheet" href="https://use.typekit.net/opg3wle.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="loading-bar.css"/>
+    <script type="text/javascript" src="loading-bar.js"></script>
 </head>
 <body>
     <div class="container">
@@ -28,6 +30,26 @@
                 <button id="toggle-button" class="button start-button" onclick="toggle()">Start</button>
             </div>
         </div>
+    </div>
+    <div class="animatronic-div" class="inline" style="top: 80%; left: 50%;">
+        <img src="https://imgur.com/kygc37Z.png"></img>
+        <span id="freddy" class="animatronic-text">3.02</span>
+        <img src="https://imgur.com/rNJkSpM.png"></img>
+        <span id="foxy" class="animatronic-text animatronic-text-end">5.01</span>
+    </div>
+    <div class="animatronic-div" class="inline" style="top: 80%; left: 50%;">
+        <div id="freddy-bar" class="ldBar animatronic-bar" data-preset="circle" ></div>
+        <div id="foxy-bar" class="ldBar animatronic-bar" data-preset="circle"></div>
+    </div>
+    <div class="animatronic-div" class="inline" style="top: 90%; left: 50%;">
+        <img src="https://imgur.com/64z9h0D.png"></img>
+        <span id="bonnie" class="animatronic-text">4.97</span>
+        <img src="https://imgur.com/0pHv5cz.png"></img>
+        <span id="chica" class="animatronic-text animatronic-text-end">4.98</span>
+    </div>
+    <div class="animatronic-div" class="inline" style="top: 90%; left: 50%;">
+        <div id="bonnie-bar" class="ldBar animatronic-bar" data-preset="circle" ></div>
+        <div id="chica-bar" class="ldBar animatronic-bar" data-preset="circle"></div>
     </div>
     <script src="script.js"></script>
 </body>
